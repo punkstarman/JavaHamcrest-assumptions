@@ -23,6 +23,8 @@ public class MatcherAssume {
 			Description description = new StringDescription();
 			description.appendText("Expected: ");
 			description.appendDescriptionOf(matcher);
+			description.appendText("     but: ");
+			matcher.describeMismatch(actual, description);
 			throw new TestAbortedException(description.toString());
 		}
 	}
