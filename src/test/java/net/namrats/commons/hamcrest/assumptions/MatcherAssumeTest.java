@@ -35,6 +35,20 @@ public class MatcherAssumeTest {
 				() -> assertThat(exception.getMessage(), containsString("Expected: a string containing \"xyz\"")),
 				() -> assertThat(exception.getMessage(), containsString("but: was \"abcdefg\""))
 		);
-		
 	}
+	
+	@Test
+	@DisplayName("Assumption with reason KO")
+	public void assumeThatWithReasonKO() {
+		TestAbortedException exception = assertThrows(TestAbortedException.class, () -> {
+			MatcherAssume.assumeThat("For this reason: ", "abcdefg", Matchers.containsString("xyz"));
+		});
+		
+		assertAll(
+				() -> assertThat(exception.getMessage(), containsString("Expected: a string containing \"xyz\"")),
+				() -> assertThat(exception.getMessage(), containsString("but: was \"abcdefg\"")),
+				() -> assertThat(exception.getMessage(), containsString("For this reason: "))
+		);
+	}
+
 }

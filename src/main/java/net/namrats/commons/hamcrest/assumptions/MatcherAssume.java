@@ -28,5 +28,9 @@ public class MatcherAssume {
 			throw new TestAbortedException(description.toString());
 		}
 	}
+	
+	public static <T> void assumeThat(String reason, T actual, Matcher<? super T> matcher) {
+		
+	}
 
 }
