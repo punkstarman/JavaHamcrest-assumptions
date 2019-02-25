@@ -1,5 +1,7 @@
 package net.namrats.commons.hamcrest.assumptions;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -24,8 +26,10 @@ public class MatcherAssumeTest {
 	@Test
 	@DisplayName("Assumption KO")
 	public void matcherKO() {
-		assertThrows(TestAbortedException.class, () -> {
+		TestAbortedException exception = assertThrows(TestAbortedException.class, () -> {
 			MatcherAssume.assumeThat("abcdefg", Matchers.containsString("xyz"));
 		});
+		
+		assertThat(exception.getMessage(), containsString("Expected: a string containing \"xyz\""));
 	}
 }
