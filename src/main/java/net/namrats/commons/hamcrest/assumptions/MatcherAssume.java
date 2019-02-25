@@ -1,6 +1,8 @@
 package net.namrats.commons.hamcrest.assumptions;
 
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
 import org.opentest4j.TestAbortedException;
 
 public class MatcherAssume {
@@ -18,7 +20,10 @@ public class MatcherAssume {
 	 */
 	public static <T> void assumeThat(T actual, Matcher<? super T> matcher) {
 		if (!matcher.matches(actual)) {
-			throw new TestAbortedException();
+			Description description = new StringDescription();
+			description.appendText("Expected: ");
+			description.appendDescriptionOf(matcher);
+			throw new TestAbortedException(description.toString());
 		}
 	}
 
