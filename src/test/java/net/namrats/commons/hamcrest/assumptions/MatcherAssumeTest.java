@@ -24,7 +24,7 @@ public class MatcherAssumeTest {
 	@Test
 	@DisplayName("Assumption KO")
 	public void matcherKO() {
-		assertThrows(TestAbortedException.class, () -> {
+		TestAbortedException exception = assertThrows(TestAbortedException.class, () -> {
 			MatcherAssume.assumeThat("abcdefg", Matchers.containsString("xyz"));
 		});
 	}
