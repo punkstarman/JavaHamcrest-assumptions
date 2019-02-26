@@ -6,7 +6,7 @@
 
   <groupId>net.namrats.commons</groupId>
   <artifactId>hamcrest-assumptions</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>hamcrest-assumptions</name>
   <description>Assumptions for Java Hamcrest</description>
