@@ -19,18 +19,19 @@ public class MatcherAssume {
 	 * @throws TestAbortedException  if the precondition does not hold
 	 */
 	public static <T> void assumeThat(T actual, Matcher<? super T> matcher) {
-		if (!matcher.matches(actual)) {
-			Description description = new StringDescription();
-			description.appendText("Expected: ");
-			description.appendDescriptionOf(matcher);
-			description.appendText("     but: ");
-			matcher.describeMismatch(actual, description);
-			throw new TestAbortedException(description.toString());
-		}
+		assumeThat("", actual, matcher);
 	}
 	
 	public static <T> void assumeThat(String reason, T actual, Matcher<? super T> matcher) {
-		
+		if (!matcher.matches(actual)) {
+			Description description = new StringDescription();
+			description.appendText(reason);
+			description.appendText("\nExpected: ");
+			description.appendDescriptionOf(matcher);
+			description.appendText("\n     but: ");
+			matcher.describeMismatch(actual, description);
+			throw new TestAbortedException(description.toString());
+		}
 	}
 
 }
