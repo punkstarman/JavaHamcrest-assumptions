@@ -22,6 +22,18 @@ public class MatcherAssume {
 		assumeThat("", actual, matcher);
 	}
 	
+	/**
+	 * Assume a precondition holds for a certain value.
+	 * 
+	 * Does nothing more if the precondition holds; otherwise throws an exception which,
+	 * when used in a test, causes the test to be marked as skipped.
+	 *
+	 * @param reason  a more specific description of the precondition
+	 * @param actual  a value
+	 * @param matcher  the precondition to be matched over the given value
+	 * 
+	 * @throws TestAbortedException  if the precondition does not hold
+	 */
 	public static <T> void assumeThat(String reason, T actual, Matcher<? super T> matcher) {
 		if (!matcher.matches(actual)) {
 			Description description = new StringDescription();
