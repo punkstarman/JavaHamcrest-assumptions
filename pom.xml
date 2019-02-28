@@ -11,6 +11,14 @@
   <name>hamcrest-assumptions</name>
   <description>Assumptions for Java Hamcrest</description>
   <url>https://github.com/punkstarman/JavaHamcrest-assumptions</url>
+  
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -211,4 +219,16 @@
     <developerConnection>scm:git:git@github.com:punkstarman/JavaHamcrest-assumptions.git</developerConnection>
     <url>https://github.com/punkstarman/JavaHamcrest-assumptions</url>
   </scm>
+  
+  <developers>
+    <developer>
+      <id>punkstarman</id>
+      <name>William RM Bartlett</name>
+      <url>https://namrats.net</url>
+      <timezone>Europe/Paris</timezone>
+      <roles>
+        <role>owner</role>
+      </roles>
+    </developer>
+  </developers>
 </project>
